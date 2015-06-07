@@ -45,11 +45,6 @@ class block_learningtimecheck extends block_list {
         $this->content->footer = '';
         $this->content->icons = array();
 
-        if (!$this->import_learningtimecheck_plugin()) {
-            $this->content->items = array(get_string('nolearningtimecheckplugin','block_learningtimecheck'));
-            return $this->content;
-        }
-
         if (empty($this->config->learningtimecheckid)) {
             $this->content->items = array(get_string('nolearningtimecheck','block_learningtimecheck'));
             return $this->content;
@@ -81,13 +76,13 @@ class block_learningtimecheck extends block_list {
             $this->content->footer = $this->get_groups_menu($cm);
             $showgroup = $this->get_selected_group($cm);
 
-            if ($users = get_users_by_capability($context, 'mod/learningtimecheck:updateown', 'u.id', '', '', '', $showgroup, '', false)) {
+            if ($users = get_users_by_capability($context, 'mod/learningtimecheck:updateown', 'u.id,'.get_all_user_name_fields(true, 'u'), '', '', '', $showgroup, '', false)) {
                 $users = array_keys($users);
                 if (!$viewallreports) { // can only see reports for their mentees
                     $users = learningtimecheck_class::filter_mentee_users($users);
                 }
                 if (!empty($users)) {
-                    $ausers = $DB->get_records_sql('SELECT u.id, u.firstname, u.lastname FROM {user} u WHERE u.id IN ('.implode(',',$users).') '.$orderby);
+                    $ausers = $DB->get_records_sql('SELECT u.id,'.get_all_user_name_fields(true, 'u').' FROM {user} u WHERE u.id IN ('.implode(',',$users).') '.$orderby);
                 }
             }
 
@@ -114,15 +109,6 @@ class block_learningtimecheck extends block_list {
     function import_learningtimecheck_plugin() {
         global $CFG, $DB;
 
-        $chk = $DB->get_record('modules', array('name'=>'learningtimecheck'));
-        if (!$chk) {
-            return false;
-        }
-
-        if ($chk->version < 2010041800) {
-            return false;
-        }
-
         if (!file_exists($CFG->dirroot.'/mod/learningtimecheck/locallib.php')) {
             return false;
         }
@@ -139,7 +125,7 @@ class block_learningtimecheck extends block_list {
             return '';
         }
 
-        $context = get_context_instance(CONTEXT_MODULE, $cm->id);
+        $context = context_module::instance($cm->id);
         $aag = has_capability('moodle/site:accessallgroups', $context);
 
         if ($groupmode == VISIBLEGROUPS or $aag) {
