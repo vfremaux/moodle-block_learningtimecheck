@@ -18,7 +18,8 @@
  * Checklist block caps.
  *
  * @package    block_learningtimecheck
- * @copyright  Davo Smith
+ * @category   blocks
+ * @copyright  Valery Fremaux (valery.fremaux@gmail.com)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

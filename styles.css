@@ -1,0 +1,57 @@
+
+.ltc-progress-table {
+    display:table;
+    border-collapse:collapse;
+}
+
+.ltc-progress-line{
+    display:table-row;
+    line-height:16px;
+}
+
+.ltc-progress-line * {
+    line-height:16px;
+}
+
+.ltc-progressbar {
+    display:table-cell;
+    width:30%;
+    padding:2px;
+    border:solid 10px transparent;
+}
+
+.ltc-progressbar-outer {
+    border:1px solid #808080;
+    border-radius:3px;
+    -moz-border-radius:3px;
+}
+
+.ltc-progressbar-outer div {
+    display:inline-block;
+}
+
+.ltc-userpicture {
+    display:table-cell;
+    width:10%;
+    padding:2px;
+    padding-left:10px;
+    padding-bottom:10px;
+}
+
+.ltc-userlink {
+    display:table-cell;
+    width:50%;
+    padding:2px;
+}
+
+.ltc-usernosee {
+    display:table-cell;
+    width:10%;
+    padding:2px;
+}
+
+@media all and (max-width: 1024px) {
+    .ltc-userlink {
+        display:none;
+    }
+}
