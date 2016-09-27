@@ -22,6 +22,7 @@ defined('MOODLE_INTERNAL') || die();
  * @copyright  Valery Fremaux (valery.fremaux@gmail.com)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+require_once($CFG->dirroot.'/mod/learningtimecheck/locallib.php');
 
 class block_learningtimecheck_renderer extends plugin_renderer_base {
 
