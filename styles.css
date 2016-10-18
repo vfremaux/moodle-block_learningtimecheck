@@ -1,7 +1,7 @@
 
 .ltc-progress-table {
-    display:table;
     border-collapse:collapse;
+    display:table;
 }
 
 .ltc-progress-line{
@@ -14,16 +14,16 @@
 }
 
 .ltc-progressbar {
-    display:table-cell;
-    width:30%;
-    padding:2px;
     border:solid 10px transparent;
+    display:table-cell;
+    padding:2px;
+    width:30%;
 }
 
 .ltc-progressbar-outer {
+    -moz-border-radius:3px;
     border:1px solid #808080;
     border-radius:3px;
-    -moz-border-radius:3px;
 }
 
 .ltc-progressbar-outer div {
@@ -32,22 +32,22 @@
 
 .ltc-userpicture {
     display:table-cell;
-    width:10%;
     padding:2px;
     padding-left:10px;
     padding-bottom:10px;
+    width:10%;
 }
 
 .ltc-userlink {
     display:table-cell;
-    width:50%;
     padding:2px;
+    width:50%;
 }
 
 .ltc-usernosee {
     display:table-cell;
-    width:10%;
     padding:2px;
+    width:10%;
 }
 
 @media all and (max-width: 1024px) {

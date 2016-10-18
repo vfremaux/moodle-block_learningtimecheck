@@ -14,14 +14,13 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * @package    block_learningtimecheck
  * @category   blocks
  * @copyright  Valery Fremaux (valery.fremaux@gmail.com)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+defined('MOODLE_INTERNAL') || die();
 
 class block_learningtimecheck_edit_form extends block_edit_form {
 
@@ -30,12 +29,16 @@ class block_learningtimecheck_edit_form extends block_edit_form {
 
         $mform->addElement('header', 'configheader', get_string('blocksettings', 'block'));
 
+        $mform->addElement('text', 'config_title', get_string('configtitle', 'block_learningtimecheck'));
+        $mform->setType('config_title', PARAM_MULTILANG);
+
         $options = array();
         $learningtimechecks = $DB->get_records('learningtimecheck', array('course' => $COURSE->id));
         foreach ($learningtimechecks as $learningtimecheck) {
             $options[$learningtimecheck->id] = s($learningtimecheck->name);
         }
-        $mform->addElement('select', 'config_learningtimecheckid', get_string('chooselearningtimecheck', 'block_learningtimecheck'), $options);
+        $label = get_string('chooselearningtimecheck', 'block_learningtimecheck');
+        $mform->addElement('select', 'config_learningtimecheckid', $label, $options);
 
         $options = array(0 => get_string('allparticipants'));
         $groups = $DB->get_records('groups', array('courseid' => $COURSE->id));
@@ -52,7 +55,20 @@ class block_learningtimecheck_edit_form extends block_edit_form {
         $mform->addElement('select', 'config_longtimenosee', get_string('longtimenosee', 'block_learningtimecheck'), $noseeoptions);
     }
 
-    function set_data($defaults) {
+    public function set_data($defaults, &$files = null) {
+
+        if (!$this->block->user_can_edit() && !empty($this->block->config->title)) {
+            // If a title has been set but the user cannot edit it format it nicely.
+            $title = $this->block->config->title;
+            $defaults->config_title = format_string($title, true, $this->page->context);
+            // Remove the title from the config so that parent::set_data doesn't set it.
+            unset($this->block->config->title);
+        }
+
         parent::set_data($defaults);
+        if (isset($title)) {
+            // Reset the preserved title.
+            $this->block->config->title = $title;
+        }
     }
 }
