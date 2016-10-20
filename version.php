@@ -20,18 +20,18 @@
  * @package     block_learningtimecheck
  * @category    blocks
  * @author      Valery Fremaux <valery.fremaux@gmail.com>
- * @copyright   2014 onwards Valery Fremaux (valery.fremaux@gmail.com)
+ * @copyright   2015 Valery Fremaux (valery.fremaux@gmail.com)
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->version  = 2015071500;
-$plugin->requires = 2015111100;
-$plugin->release  = '3.0.0 (Build: 2015071500)';
+$plugin->requires = 2016051900;
 $plugin->component = 'block_learningtimecheck';
+$plugin->release  = '3.1.0 (Build: 2015071500)';
 $plugin->maturity = MATURITY_STABLE;
 $plugin->dependencies = array('mod_learningtimecheck' => 2014011800); // Must have learningtimecheck activity module installed.
 
 // Non moodle attributes.
-$plugin->codeincrement = '3.0.0000';
+$plugin->codeincrement = '3.1.0000';
