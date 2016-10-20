@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Learningtimecheck block caps.
+ * Checklist block caps.
  *
  * @package    block_learningtimecheck
  * @category   blocks
