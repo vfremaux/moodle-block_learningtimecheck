@@ -122,7 +122,7 @@ class block_learningtimecheck extends block_base {
                         WHERE
                             u.id
                         IN
-                            ('.implode(',',$users).')
+                            ('.implode(',', $users).')
                     '.$orderby;
                     $ausers = $DB->get_records_sql($sql);
                 }
@@ -139,7 +139,7 @@ class block_learningtimecheck extends block_base {
                                 $auser->longtimenosee = $this->config->longtimenosee;
                             }
                         } else {
-                            // Never seen
+                            // Never seen.
                             $auser->longtimenosee = -1;
                         }
                     }
@@ -148,7 +148,7 @@ class block_learningtimecheck extends block_base {
                 }
                 $this->content->text .= '</div>';
             } else {
-                $this->content->text = get_string('nousers','block_learningtimecheck');
+                $this->content->text = get_string('nousers', 'block_learningtimecheck');
             }
         } else {
             $viewurl = new moodle_url('/mod/learningtimecheck/view.php', array('id' => $cm->id));
