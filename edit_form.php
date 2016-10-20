@@ -47,7 +47,7 @@ class block_learningtimecheck_edit_form extends block_edit_form {
         }
         $mform->addElement('select', 'config_groupid', get_string('choosegroup', 'block_learningtimecheck'), $options);
 
-        $noseeoptions = array('0' => get_string('nosignal', 'block_learningtimecheck'), 
+        $noseeoptions = array('0' => get_string('nosignal', 'block_learningtimecheck'),
             '1' => get_string('oneweeknosee', 'block_learningtimecheck'),
             '2' => get_string('twoweeksnosee', 'block_learningtimecheck'),
             '3' => get_string('threeweeksnosee', 'block_learningtimecheck'),
