@@ -52,7 +52,7 @@ class restore_learningtimecheck_block_task extends restore_block_task {
     static public function define_decode_rules() {
         return array();
     }
-    
+
     // Each block should remap its binding to his configured LTC instance.
     public function after_restore() {
         global $DB;
@@ -61,7 +61,9 @@ class restore_learningtimecheck_block_task extends restore_block_task {
         $blockid = $this->get_blockid();
 
         // These are fake blocks that can be cached in backup.
-        if (!$blockid) return;
+        if (!$blockid) {
+            return;
+        }
 
         $bi = $DB->get_record('block_instances', array('id' => $blockid));
 
@@ -75,7 +77,7 @@ class restore_learningtimecheck_block_task extends restore_block_task {
             $config->learningtimecheckid = $this->get_mappingid('learningtimecheck', $config->learningtimecheckid);
             // Serialize back the configdata.
             $bi->configdata = base64_encode(serialize($config));
-    
+
             // Store back in DB.
             $DB->update_record('block_instances', $bi);
         }
