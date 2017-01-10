@@ -27,14 +27,14 @@ $string['learningtimecheck:addinstance'] = 'Ajouter un bloc Temps pédagogiques 
 $string['learningtimecheck:myaddinstance'] = 'Ajouter un bloc Temps pédagogiques';
 
 $string['configtitle'] = 'Titre spécialisé (laisser vide pour le titre standard).';
-$string['title'] = 'Progression';
+$string['title'] = 'Résumé des temps pédagogiques';
 $string['learningtimecheck'] = 'Liste des temps pédagogiques';
 $string['chooselearningtimecheck'] = 'Choisir une Liste des temps pédagogiques';
 $string['choosegroup'] = 'Choisir un groupe';
 $string['nolearningtimecheck'] = 'Merci d\'éditer ce bloc pour sélectionner une Liste des temps pédagogiques à visualiser';
 $string['nolearningtimecheckplugin'] = 'Vous devez installer la dernière version du plugin Liste des temps pédagogiques pour que ce bloc fonctionne';
 $string['nousers'] = 'Pas d\'utilisateur';
-$string['pluginname'] = 'Liste des temps pédagogiques';
+$string['pluginname'] = 'Résumé des temps pédagogiques';
 $string['longtimenosee'] = 'Signal de décrochage';
 $string['nosignal'] = 'Désactivé';
 $string['neverseen'] = 'Jamais connecté';
