@@ -53,6 +53,13 @@ class block_learningtimecheck extends block_base {
     public function get_content() {
         global $CFG, $USER, $DB, $PAGE, $COURSE, $OUTPUT;
 
+        $page = optional_param('ltcpage', 0, PARAM_INT);
+
+        $config = get_config('block_learningtimecheck');
+        if (empty($config->pagesize)) {
+            $config->pagesize = 30;
+        }
+
         if ($this->content !== null) {
             return $this->content;
         }
@@ -99,9 +106,11 @@ class block_learningtimecheck extends block_base {
             if ($COURSE->groupmode != NOGROUPS) {
                 $this->content->footer = $this->get_groups_menu($cm);
                 $showgroup = $this->get_selected_group($cm);
-                $users = get_users_by_capability($context, $cap, $fields, '', '', '', $showgroup, '', false);
+                $allusers = get_users_by_capability($context, $cap, 'u.id', '', '', '', 0, '', false);
+                $users = get_users_by_capability($context, $cap, $fields, 'lastname, firstname', $page * $config->pagesize, $config->pagesize, $showgroup, '', false);
             } else {
-                $users = get_users_by_capability($context, $cap, $fields, '', '', '', 0, '', false);
+                $allusers = get_users_by_capability($context, $cap, 'u.id', '', '', '', 0, '', false);
+                $users = get_users_by_capability($context, $cap, $fields, 'lastname, firstname', $page * $config->pagesize, $config->pagesize, 0, '', false);
             }
 
             if ($users) {
@@ -155,6 +164,8 @@ class block_learningtimecheck extends block_base {
             $USER->longtimenosee = 0;
             $this->content->text .= $renderer->userline($USER, $learningtimecheck, $cm);
         }
+
+        $this->content->text .= $OUTPUT->paging_bar(count($allusers), $page, $config->pagesize, me(), 'ltcpage');
 
         return $this->content;
     }
