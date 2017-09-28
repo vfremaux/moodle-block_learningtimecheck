@@ -93,6 +93,8 @@ class block_learningtimecheck extends block_base {
         $viewallreports = has_capability('mod/learningtimecheck:viewreports', $context);
         $viewmenteereports = has_capability('mod/learningtimecheck:viewmenteereports', $context);
 
+        $allusers = array();
+
         if ($viewallreports || $viewmenteereports) {
             $orderby = 'ORDER BY firstname ASC';
             $ausers = false;
