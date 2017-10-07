@@ -145,8 +145,10 @@ class block_learningtimecheck extends block_base {
 
                     $auser->longtimenosee = false;
                     if (!empty($this->config->longtimenosee)) {
-                        if ($maxlogstamp = $this->get_last_log_in_course($learningtimecheck->course, $auser->id)) {
-                            if ($maxlogstamp < (time() - $this->config->longtimenosee * 7 * DAYSECS)) {
+                        $params = array('userid' => $auser->id, 'courseid' => $learningtimecheck->course);
+                        $lastaccess = $DB->get_record('user_lastaccess', $params);
+                        if ($lastaccess) {
+                            if ($lastaccess->timeaccess < (time() - $this->config->longtimenosee * 7 * DAYSECS)) {
                                 $auser->longtimenosee = $this->config->longtimenosee;
                             }
                         } else {
