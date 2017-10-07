@@ -21,6 +21,5 @@ if ($ADMIN->fulltree) {
     $key = 'block_learningtimecheck/pagesize';
     $label = get_string('configpagesize', 'block_learningtimecheck');
     $desc = get_string('configpagesize_desc', 'block_learningtimecheck');
-    $settings->add(new admin_setting_configtext($key, $label, $desc,30));
-
+    $settings->add(new admin_setting_configtext($key, $label, $desc, 30));
 }
