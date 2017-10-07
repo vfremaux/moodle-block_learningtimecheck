@@ -14,24 +14,13 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-/**
- * Version details.
- *
- * @package     block_learningtimecheck
- * @category    blocks
- * @author      Valery Fremaux <valery.fremaux@gmail.com>
- * @copyright   2015 Valery Fremaux (valery.fremaux@gmail.com)
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
-
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version  = 2015071500;
-$plugin->requires = 2014110400;
-$plugin->component = 'block_learningtimecheck';
-$plugin->release  = '2.8.0 (Build: 2015032200)';
-$plugin->maturity = MATURITY_STABLE;
-$plugin->dependencies = array('mod_learningtimecheck' => 2014011800); // Must have learningtimecheck activity module installed.
+if ($ADMIN->fulltree) {
 
-// Non moodle attributes.
-$plugin->codeincrement = '2.8.0000';
+    $key = 'block_learningtimecheck/pagesize';
+    $label = get_string('configpagesize', 'block_learningtimecheck');
+    $desc = get_string('configpagesize_desc', 'block_learningtimecheck');
+    $settings->add(new admin_setting_configtext($key, $label, $desc,30));
+
+}
