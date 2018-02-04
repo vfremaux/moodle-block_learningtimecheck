@@ -46,14 +46,12 @@ class block_learningtimecheck_renderer extends plugin_renderer_base {
         if ($auser->longtimenosee > 0) {
             $str .= '<div class="ltc-usernosee">';
             $title = get_string('notseenfor', 'block_learningtimecheck', $auser->longtimenosee);
-            $pixurl = $OUTPUT->pix_url('lazy', 'block_learningtimecheck');
-            $str .= '<img title="'.$title.'" width="32" height="32" src="'.$pixurl.'" />';
+            $str .= $OUTPUT->pix_icon('lazy', $title, 'block_learningtimecheck');
             $str .= '</div>';
         } else if ($auser->longtimenosee == -1) {
             $str .= '<div class="ltc-usernosee">';
             $title = get_string('neverseen', 'block_learningtimecheck', $auser->longtimenosee);
-            $pixurl = $OUTPUT->pix_url('neverseen', 'block_learningtimecheck');
-            $str .= '<img title="'.$title.'" width="32" height="32" src="'.$pixurl.'" />';
+            $str .= $OUTPUT->pix_icon('neverseen', $title, 'block_learningtimecheck');
             $str .= '</div>';
         }
         $str .= '</div>';
