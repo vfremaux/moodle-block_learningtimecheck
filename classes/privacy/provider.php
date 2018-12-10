@@ -14,24 +14,18 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-/**
- * Version details.
- *
- * @package     block_learningtimecheck
- * @category    blocks
- * @author      Valery Fremaux <valery.fremaux@gmail.com>
- * @copyright   2015 Valery Fremaux (valery.fremaux@gmail.com)
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
+namespace block_learningtimecheck\privacy;
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version  = 2015071500;
-$plugin->requires = 2018112800;
-$plugin->component = 'block_learningtimecheck';
-$plugin->release  = '3.6.0 (Build: 2015071500)';
-$plugin->maturity = MATURITY_STABLE;
-$plugin->dependencies = array('mod_learningtimecheck' => 2014011800); // Must have learningtimecheck activity module installed.
-
-// Non moodle attributes.
-$plugin->codeincrement = '3.6.0000';
+class provider implements \core_privacy\local\metadata\null_provider {
+    /**
+     * Get the language string identifier with the component's language
+     * file to explain why this plugin stores no data.
+     *
+     * @return  string
+     */
+    public static function get_reason() : string {
+        return 'privacy:metadata';
+    }
+}
