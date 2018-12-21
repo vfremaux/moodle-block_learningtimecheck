@@ -26,6 +26,9 @@
 $string['learningtimecheck:addinstance'] = 'Add Learning Time Checklist block to My Moodle page';
 $string['learningtimecheck:myaddinstance'] = 'Add new Learning Time Checklist block';
 
+// Privacy
+$string['privacy:metadata'] = 'The Learningtime Check block does not directly store any personal data about any user.';
+
 $string['choosegroup'] = 'Default group';
 $string['chooselearningtimecheck'] = 'Choose LT checklist';
 $string['configpagesize'] = 'Page size';
