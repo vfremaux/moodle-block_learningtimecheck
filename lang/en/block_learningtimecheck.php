@@ -48,3 +48,15 @@ $string['pluginname'] = 'Learning Time Check Summary';
 $string['threeweeksnosee'] = 'Three weeks';
 $string['title'] = 'Time check summary';
 $string['twoweeksnosee'] = 'Two weeks';
+$string['progressbars'] = 'Progress bar units';
+$string['items'] = 'Item count';
+$string['time'] = 'Time units';
+$string['both'] = 'Both time and items';
+$string['mandatories'] = 'Mandatory elements';
+$string['optionals'] = 'Other elements';
+$string['all'] = 'All';
+$string['teacherhdr'] = 'Teacher side settings';
+$string['searchbyname'] = 'Filter name';
+$string['overflowsignal'] = 'There are more users that we can print. Use the name filter above to reduce the choice.';
+
+
