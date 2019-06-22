@@ -26,6 +26,9 @@
 $string['learningtimecheck:addinstance'] = 'Ajouter un bloc Temps pédagogiques à ma page personnalisée';
 $string['learningtimecheck:myaddinstance'] = 'Ajouter un bloc Temps pédagogiques';
 
+// Privacy.
+$string['privacy:metadata'] = 'Le bloc Temps Pédagogiques ne détient directement aucune donnée relative aux utilisateurs.';
+
 $string['choosegroup'] = 'Choisir un groupe';
 $string['chooselearningtimecheck'] = 'Choisir une Liste des temps pédagogiques';
 $string['configpagesize'] = 'Taille de page';
