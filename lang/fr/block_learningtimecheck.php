@@ -26,6 +26,9 @@
 $string['learningtimecheck:addinstance'] = 'Ajouter un bloc Temps pédagogiques à ma page personnalisée';
 $string['learningtimecheck:myaddinstance'] = 'Ajouter un bloc Temps pédagogiques';
 
+// Privacy.
+$string['privacy:metadata'] = 'Le bloc Temps Pédagogiques ne détient directement aucune donnée relative aux utilisateurs.';
+
 $string['choosegroup'] = 'Choisir un groupe';
 $string['chooselearningtimecheck'] = 'Choisir une Liste des temps pédagogiques';
 $string['configpagesize'] = 'Taille de page';
@@ -45,3 +48,14 @@ $string['pluginname'] = 'Résumé des temps pédagogiques';
 $string['threeweeksnosee'] = 'Trois semaines';
 $string['title'] = 'Résumé des temps pédagogiques';
 $string['twoweeksnosee'] = 'Deux semaines';
+$string['progressbars'] = 'Unités des barres';
+$string['items'] = 'Nombre d\'items';
+$string['time'] = 'Temps passé';
+$string['both'] = 'Nombre et temps';
+$string['mandatories'] = 'Obligatoires';
+$string['optionals'] = 'Autres';
+$string['all'] = 'tous';
+$string['teacherhdr'] = 'Réglages enseignant';
+$string['searchbyname'] = 'Réduire';
+$string['overflowsignal'] = 'Il y a plus d\'utilisateur que la limite affichable. Utilisez le filtre pour réduire la liste.';
+

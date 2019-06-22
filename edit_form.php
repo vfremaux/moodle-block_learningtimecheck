@@ -40,6 +40,29 @@ class block_learningtimecheck_edit_form extends block_edit_form {
         $label = get_string('chooselearningtimecheck', 'block_learningtimecheck');
         $mform->addElement('select', 'config_learningtimecheckid', $label, $options);
 
+        $pgoptions = [
+            PROGRESSBAR_ITEMS => get_string('items', 'block_learningtimecheck'),
+            PROGRESSBAR_TIME => get_string('time', 'block_learningtimecheck'),
+            PROGRESSBAR_BOTH => get_string('both', 'block_learningtimecheck'),
+        ];
+
+        $label = get_string('progressbars', 'block_learningtimecheck');
+        $mform->addElement('select', 'config_progressbars', $label, $pgoptions);
+
+        $label = get_string('mandatories', 'block_learningtimecheck');
+        $mform->addElement('advcheckbox', 'config_mandatories', $label);
+        $mform->setDefault('config_mandatories', 1);
+
+        $label = get_string('optionals', 'block_learningtimecheck');
+        $mform->addElement('advcheckbox', 'config_optionals', $label);
+        $mform->setDefault('config_optionals', 0);
+
+        $label = get_string('all', 'block_learningtimecheck');
+        $mform->addElement('advcheckbox', 'config_all', $label);
+        $mform->setDefault('config_all', 1);
+
+        $mform->addElement('header', 'teacherhdr', get_string('teacherhdr', 'block_learningtimecheck'));
+
         $options = array(0 => get_string('allparticipants'));
         $groups = $DB->get_records('groups', array('courseid' => $COURSE->id));
         foreach ($groups as $group) {
