@@ -27,21 +27,11 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->version  = 2015071500;
-<<<<<<< HEAD
-$plugin->requires = 2018042700;
+$plugin->requires = 2019051100;
 $plugin->component = 'block_learningtimecheck';
-$plugin->release  = '3.5.0 (Build: 2015071500)';
-=======
-$plugin->requires = 2018112800;
-$plugin->component = 'block_learningtimecheck';
-$plugin->release  = '3.6.0 (Build: 2015071500)';
->>>>>>> MOODLE_36_STABLE
+$plugin->release  = '3.7.0 (Build: 2015071500)';
 $plugin->maturity = MATURITY_STABLE;
 $plugin->dependencies = array('mod_learningtimecheck' => 2014011800); // Must have learningtimecheck activity module installed.
 
 // Non moodle attributes.
-<<<<<<< HEAD
-$plugin->codeincrement = '3.5.0000';
-=======
-$plugin->codeincrement = '3.6.0000';
->>>>>>> MOODLE_36_STABLE
+$plugin->codeincrement = '3.7.0000';

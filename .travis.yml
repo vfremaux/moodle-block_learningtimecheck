@@ -16,21 +16,11 @@ cache:
     - $HOME/.npm
 
 php:
-<<<<<<< HEAD
- - 7.1
- - 7.2
-=======
- - 7.0
- - 7.1
->>>>>>> MOODLE_36_STABLE
+ - 7.3
 
 env:
   global:
-    - MOODLE_BRANCH=MOODLE_35_STABLE
-<<<<<<< HEAD
-
-=======
->>>>>>> MOODLE_36_STABLE
+    - MOODLE_BRANCH=MOODLE_37_STABLE
   matrix:
     - DB=mysqli
     - DB=pgsql
@@ -49,7 +39,7 @@ install:
 
 script:
   - moodle-plugin-ci phplint
-  - moodle-plugin-ci phpcpd
+#  - moodle-plugin-ci phpcpd
   - moodle-plugin-ci phpmd
   - moodle-plugin-ci codechecker
   - moodle-plugin-ci validate
