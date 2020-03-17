@@ -48,3 +48,14 @@ $string['pluginname'] = 'Résumé des temps pédagogiques';
 $string['threeweeksnosee'] = 'Trois semaines';
 $string['title'] = 'Résumé des temps pédagogiques';
 $string['twoweeksnosee'] = 'Deux semaines';
+$string['progressbars'] = 'Unités des barres';
+$string['items'] = 'Nombre d\'items';
+$string['time'] = 'Temps passé';
+$string['both'] = 'Nombre et temps';
+$string['mandatories'] = 'Obligatoires';
+$string['optionals'] = 'Autres';
+$string['all'] = 'tous';
+$string['teacherhdr'] = 'Réglages enseignant';
+$string['searchbyname'] = 'Réduire';
+$string['overflowsignal'] = 'Il y a plus d\'utilisateur que la limite affichable. Utilisez le filtre pour réduire la liste.';
+
