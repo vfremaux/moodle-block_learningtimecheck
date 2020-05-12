@@ -121,8 +121,12 @@ class block_learningtimecheck extends block_base {
         $allusers = array();
 
         $options = new Stdclass;
-        $options->progressbars = $this->config->progressbars;
-        $options->elements = $this->config->elements;
+        $options->progressbars = 0 + @$this->config->progressbars;
+        if (!empty($this->config->elements)) {
+            $options->elements = $this->config->elements;
+        } else {
+            $options->elements = PROGRESSBAR_ALL;
+        }
         $template = new StdClass;
         $template->cmid = $cm->id;
         $template->id = $COURSE->id;
@@ -152,6 +156,9 @@ class block_learningtimecheck extends block_base {
                 $filterclause = ' (lastname LIKE "%'.$namefilter.'%" OR firstname LIKE "%'.$namefilter.'%") ';
             }
 
+            $allusersnum = 0;
+            $ausers = [];
+
             if ($users) {
                 $users = array_keys($users);
                 if (!$viewallreports) { // Can only see reports for their mentees.
@@ -179,7 +186,7 @@ class block_learningtimecheck extends block_base {
                 }
             }
 
-            if ($allusersnum > $config->pagesize || ($allusersnum > count($ausers))) {
+            if (($allusersnum > $config->pagesize) || ($allusersnum > count($ausers))) {
                 $template->overflowsignal = true;
                 $template->overflowsignalnotification = $OUTPUT->notification(get_string('overflowsignal', 'block_learningtimecheck'));
                 $template->usenamefilter = true;
@@ -188,6 +195,7 @@ class block_learningtimecheck extends block_base {
             $template->singleuser = false;
 
             if (!empty($ausers)) {
+                $template->singleuser = false;
                 foreach ($ausers as $auser) {
 
                     $usertpl = new StdClass;

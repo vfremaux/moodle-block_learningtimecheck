@@ -36,7 +36,7 @@ define(['jquery', 'core/log'], function ($, log) {
             var formid = '#ltc-filterform-' + cmid;
             $(formid).submit();
         }
-    }
+    };
 
     return blocklearningtimecheck;
 });
