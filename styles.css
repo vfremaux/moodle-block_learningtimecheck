@@ -1,27 +1,27 @@
 
 .ltc-progress-table {
-    border-collapse:collapse;
-    display:table;
+    border-collapse: collapse;
+    display: table;
 }
 
 .ltc-progress-line{
-    line-height:16px;
+    line-height: 16px;
 }
 
 ltc-progress-line-userinfo {
-    display:flex;
+    display: flex;
 }
 
 .ltc-progress-line * {
-    line-height:16px;
+    line-height: 16px;
 }
 
 .ltc-userpicture {
-    display:table-cell;
-    padding:2px;
-    padding-left:10px;
-    padding-bottom:10px;
-    width:10%;
+    display: table-cell;
+    padding: 2px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    width: 10%;
 }
 
 .ltc-progress-line .ltc-bar-box,
@@ -36,20 +36,20 @@ ltc-progress-line-userinfo {
 }
 
 .ltc-userlink {
-    display:table-cell;
-    padding:2px;
-    width:50%;
+    display: table-cell;
+    padding: 2px;
+    width: 50%;
 }
 
 .ltc-usernosee {
-    display:table-cell;
-    padding:2px;
-    width:10%;
+    display: table-cell;
+    padding: 2px;
+    width: 10%;
 }
 
 @media all and (max-width: 1024px) {
     .ltc-userlink {
-        display:none;
+        display: none;
     }
 }
 
