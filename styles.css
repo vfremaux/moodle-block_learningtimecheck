@@ -1,57 +1,64 @@
 
 .ltc-progress-table {
-    border-collapse:collapse;
-    display:table;
+    border-collapse: collapse;
+    display: table;
 }
 
 .ltc-progress-line{
-    display:table-row;
-    line-height:16px;
+    line-height: 16px;
+}
+
+ltc-progress-line-userinfo {
+    display: flex;
 }
 
 .ltc-progress-line * {
-    line-height:16px;
-}
-
-.ltc-progressbar {
-    border:solid 10px transparent;
-    display:table-cell;
-    padding:2px;
-    width:30%;
-}
-
-.ltc-progressbar-outer {
-    -moz-border-radius:3px;
-    border:1px solid #808080;
-    border-radius:3px;
-}
-
-.ltc-progressbar-outer div {
-    display:inline-block;
+    line-height: 16px;
 }
 
 .ltc-userpicture {
-    display:table-cell;
-    padding:2px;
-    padding-left:10px;
-    padding-bottom:10px;
-    width:10%;
+    display: table-cell;
+    padding: 2px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    width: 10%;
+}
+
+.ltc-progress-line .ltc-bar-box,
+.ltc-progress-line .ltc-progressbar {
+    display: block;
+}
+
+.ltc-progress-line .ltc-progress-outer {
+    width: 150px;
+    margin-bottom: 10px;
+    height: 18px;
 }
 
 .ltc-userlink {
-    display:table-cell;
-    padding:2px;
-    width:50%;
+    display: table-cell;
+    padding: 2px;
+    width: 50%;
 }
 
 .ltc-usernosee {
-    display:table-cell;
-    padding:2px;
-    width:10%;
+    display: table-cell;
+    padding: 2px;
+    width: 10%;
 }
 
 @media all and (max-width: 1024px) {
     .ltc-userlink {
-        display:none;
+        display: none;
     }
+}
+
+.ltc-filterform {
+    margin: 10px;
+    text-align: center;
+}
+
+.ltc-progress-heading {
+    font-size: 80%;
+    margin-bottom: 5px;
 }

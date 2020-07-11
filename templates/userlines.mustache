@@ -1,0 +1,51 @@
+
+
+<!-- block_learningtimecheck/userlines -->
+
+{{#usenamefilter}}
+<form name="ltcfilterform{{cmid}}" class="ltc-filterform" id="ltc-filterform-{{cmid}}" action="/course/view.php">
+<input type="hidden" name="id" value="{{id}}">
+<input type="text" name="ltcnamefilter{{cmid}}" value="{{filtervalue}}" data-cmid="{{cmid}}" class="ltc-name-filter"
+       placeholder="{{#str}}searchbyname, block_learningtimecheck{{/str}}">
+</form>
+{{/usenamefilter}}
+
+<div class="ltc-progress-table">
+    {{#users}}
+    {{^singleuser}}
+    <div class="ltc-progress-line-userinfo">
+        <div class="ltc-userpicture">
+            <a href="{{{reporturl}}}" >{{{userpicture}}}</a>
+        </div>
+
+        <div class="ltc-userlink">
+            <a href="{{{reporturl}}}" >{{fullname}}</a>
+        </div>
+
+        {{#longtimenosee}}
+        <div class="ltc-usernosee">
+        {{{noseeicon}}}
+        </div>
+        {{/longtimenosee}}
+
+        {{#neverseen}}
+        <div class="ltc-usernosee">
+        {{{neverseenicon}}}
+        </div>
+        {{/neverseen}}
+
+    </div>
+    {{/singleuser}}
+
+    <div class="ltc-progress-line">
+
+        {{{progressbar}}}
+    </div>
+    {{/users}}
+
+    {{#overflowsignal}}
+    {{{overflowsignalnotification}}}
+    {{/overflowsignal}}
+    
+</div>
+<!-- /block_learningtimecheck/userline -->
