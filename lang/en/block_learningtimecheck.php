@@ -26,7 +26,7 @@
 $string['learningtimecheck:addinstance'] = 'Add Learning Time Checklist block to My Moodle page';
 $string['learningtimecheck:myaddinstance'] = 'Add new Learning Time Checklist block';
 
-// Privacy
+// Privacy.
 $string['privacy:metadata'] = 'The Learningtime Check block does not directly store any personal data about any user.';
 
 $string['choosegroup'] = 'Default group';

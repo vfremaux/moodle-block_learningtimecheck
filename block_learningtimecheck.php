@@ -51,7 +51,7 @@ class block_learningtimecheck extends block_base {
     /**
      * Serialize and store config data
      */
-    function instance_config_save($data, $nolongerused = false) {
+    public function instance_config_save($data, $nolongerused = false) {
         global $DB;
 
         if ($data->mandatories) {
@@ -121,8 +121,12 @@ class block_learningtimecheck extends block_base {
         $allusers = array();
 
         $options = new Stdclass;
-        $options->progressbars = $this->config->progressbars;
-        $options->elements = $this->config->elements;
+        $options->progressbars = 0 + @$this->config->progressbars;
+        if (!empty($this->config->elements)) {
+            $options->elements = $this->config->elements;
+        } else {
+            $options->elements = PROGRESSBAR_ALL;
+        }
         $template = new StdClass;
         $template->cmid = $cm->id;
         $template->id = $COURSE->id;
@@ -152,6 +156,9 @@ class block_learningtimecheck extends block_base {
                 $filterclause = ' (lastname LIKE "%'.$namefilter.'%" OR firstname LIKE "%'.$namefilter.'%") ';
             }
 
+            $allusersnum = 0;
+            $ausers = [];
+
             if ($users) {
                 $users = array_keys($users);
                 if (!$viewallreports) { // Can only see reports for their mentees.
@@ -179,15 +186,17 @@ class block_learningtimecheck extends block_base {
                 }
             }
 
-            if ($allusersnum > $config->pagesize || ($allusersnum > count($ausers))) {
+            if (($allusersnum > $config->pagesize) || ($allusersnum > count($ausers))) {
                 $template->overflowsignal = true;
-                $template->overflowsignalnotification = $OUTPUT->notification(get_string('overflowsignal', 'block_learningtimecheck'));
+                $notifstr = get_string('overflowsignal', 'block_learningtimecheck');
+                $template->overflowsignalnotification = $OUTPUT->notification($notifstr);
                 $template->usenamefilter = true;
             }
 
             $template->singleuser = false;
 
             if (!empty($ausers)) {
+                $template->singleuser = false;
                 foreach ($ausers as $auser) {
 
                     $usertpl = new StdClass;
@@ -208,10 +217,10 @@ class block_learningtimecheck extends block_base {
                     $ltcobject = new learningtimecheck_class($cm->id, $auser->id, $learningtimecheck);
                     $renderer->set_instance($ltcobject);
 
-                    // $template->progressbar = learningtimecheck_class::print_user_progressbar($learningtimecheck->id, $auser->id, '100%', false, true);
                     $usertpl->progressbar = $renderer->progressbar($options);
                     $usertpl->reporturl = $reporturl->out(true, array('studentid' => $auser->id));
-                    $usertpl->userpicture = $OUTPUT->user_picture($auser, array('size' => 30, 'courseid' => $COURSE->id, 'class' => ''));
+                    $attrs = ['size' => 30, 'courseid' => $COURSE->id, 'class' => ''];
+                    $usertpl->userpicture = $OUTPUT->user_picture($auser, $attrs);
                     $usertpl->fullname = fullname($auser);
                     if ($auser->longtimenosee > 0) {
                         $usertpl->longtimenosee = true;
@@ -243,8 +252,6 @@ class block_learningtimecheck extends block_base {
             $template->users[] = $usertpl;
             $this->content->text = $OUTPUT->render_from_template('block_learningtimecheck/userlines', $template);
         }
-
-        // $this->content->text .= $OUTPUT->paging_bar(count($allusers), $page, $config->pagesize, me(), 'ltcpage');
 
         return $this->content;
     }
