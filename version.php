@@ -32,7 +32,7 @@ $plugin->component = 'block_learningtimecheck';
 $plugin->release  = '3.9.0 (Build: 2015071500)';
 $plugin->maturity = MATURITY_STABLE;
 $plugin->dependencies = array('mod_learningtimecheck' => 2014011800); // Must have learningtimecheck activity module installed.
-$plugin->supports = [38,39];
+$plugin->supports = [39,311];
 
 // Non moodle attributes.
 $plugin->codeincrement = '3.9.0000';
