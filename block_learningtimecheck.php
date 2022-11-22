@@ -139,7 +139,9 @@ class block_learningtimecheck extends block_base {
 
             // Add the groups selector to the footer.
 
-            $fields = 'u.id,'.get_all_user_name_fields(true, 'u').',picture,imagealt,email';
+            // M4.
+            $fields = \core_user\fields::for_name()->with_userpic()->excluding('id')->get_required_fields();
+            $fields = 'u.id,'.implode(',', $fields);
             $cap = 'mod/learningtimecheck:updateown';
             if ($COURSE->groupmode != NOGROUPS) {
                 $this->content->footer = $this->get_groups_menu($cm);
@@ -168,11 +170,7 @@ class block_learningtimecheck extends block_base {
                 if (!empty($users)) {
                     $sql = '
                         SELECT
-                            u.id,
-                            '.get_all_user_name_fields(true, 'u').',
-                            picture,
-                            imagealt,
-                            email
+                            '.$fields.'
                         FROM
                             {user} u
                         WHERE
